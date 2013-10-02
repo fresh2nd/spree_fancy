@@ -15,9 +15,6 @@ $(function(){
   // Home sliders
   if($('#home-slider').length > 0) {
 
-    var cached_carousel_1 = $('#featured-products .carousel').html();
-    var cached_carousel_2 = $('#latest-products .carousel').html();
-
     $('#home-slider > ul').bxSlider({
       adaptiveHeight: true,
       auto: true,
@@ -28,6 +25,19 @@ $(function(){
       touchEnabled: false
     });
 
+    $("#home-slider .product-description").dotdotdot({
+      watch: true,
+      height: 250
+    });
+
+  }
+  
+  // Home carousels
+  if($('.carousel').length > 0) {
+    
+    var cached_carousel_1 = $('#featured-products .carousel').html();
+    var cached_carousel_2 = $('#latest-products .carousel').html();
+    
     $('.carousel').bxSlider({
       minSlides: 1,
       maxSlides: 4,
@@ -39,14 +49,9 @@ $(function(){
       controls: false,
       touchEnabled: false
     });
-
-    $("#home-slider .product-description").dotdotdot({
-      watch: true,
-      height: 250
-    });
-
+    
   }
-
+  
   // Make buttons from radio inoputs
   $( "#product-variants .variants-buttons" ).buttonset();
   $( ".payment-method-selector").buttonset();
